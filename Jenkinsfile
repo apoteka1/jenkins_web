@@ -48,6 +48,7 @@ pipeline {
 			
 			steps{
     			echo "deploy"
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'Webserver', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'cp index.html /var/www/html/index.html', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: './index.html')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 
 			}
     	}
