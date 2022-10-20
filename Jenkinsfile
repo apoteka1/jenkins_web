@@ -5,7 +5,7 @@ def printFromFunction(){
 def replaceString(){
 	def text = readfile file: "index.html"
 	text = text.replaceAll("%BUILD_NUMBER%", "${BUILD_NUMBER}")
-	writeFile file: "index.html", text:text
+	writeFile file: "index.html", text: text
 }
 		
 
@@ -23,7 +23,7 @@ pipeline {
 			steps {
     			echo "build"
 				printFromFunction()
-				replaceString()
+				// replaceString()
 
 			}
     	}
