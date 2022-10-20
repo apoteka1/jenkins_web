@@ -1,3 +1,5 @@
+@Library('jenkins_shared') _
+
 def printFromFunction(){
 	println("I am printing from a function")
 }
@@ -15,6 +17,7 @@ pipeline {
 
     options {
     	timestamps()
+
     }
 
     stages {
@@ -24,6 +27,7 @@ pipeline {
     			echo "build"
 				printFromFunction()
 				replaceString()
+				hello()
 
 			}
     	}
