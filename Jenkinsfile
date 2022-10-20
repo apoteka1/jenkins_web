@@ -31,13 +31,13 @@ pipeline {
 				agent {
 					docker {
 						image "python:latest"
-						args "-v ${WORKSPACE}/docker:/home/node"
+						args "-v ${WORKSPACE}/docker:/python/node"
 					}
 				}
 				steps {
     			echo "building in docker"
 					sh """
-						python3 --version > /home/node/pythonversion.txt
+						python3 --version > /home/python/pythonversion.txt
 					"""
 				}
 			
