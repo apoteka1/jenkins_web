@@ -30,14 +30,13 @@ pipeline {
 			
 				agent {
 					docker {
-						image "node:latest"
+						image "python:latest"
 						args "-v ${WORKSPACE}/docker:/home/node"
 					}
 				}
 				steps {
     			echo "building in docker"
 					sh """
-						npm --version > /home/node/npmeversion.txt
 						python3 --version > /home/node/pythonversion.txt
 					"""
 				}
