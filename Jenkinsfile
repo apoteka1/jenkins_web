@@ -12,7 +12,7 @@ pipeline {
 
     stages {
       
-    	stage("build"){
+    	stage("web build"){
 			steps {
     			echo "build"
 				script {
@@ -20,6 +20,27 @@ pipeline {
 				}
 				hello()
 				helloVariable("joe")
+				sh """
+					mkdir -p docker
+				"""
+
+			}
+    	}
+		stage("docker build"){
+			steps {
+    			echo "building in docker"
+				agent {
+					docker {
+						image "node:latest"
+						args "-v ${WORKSPACE}/docker:/home/node"
+					}
+				}
+				steps {
+					sh """
+						node --version > /home/node/nodeversion.txt
+						npm --version > /home/node/npmeversion.txt
+					"""
+				}
 
 			}
     	}
