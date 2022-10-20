@@ -29,6 +29,9 @@ pipeline {
 				stage("testing on Linux") {
 					steps {
 						echo "Testing on Linux"
+						sh """
+							cat ./index.html | grep ${BUILD_NUMBER}
+						"""
 					}
 				}
 				stage("testing on Mac") {
@@ -36,6 +39,7 @@ pipeline {
 						echo "Testing on Mac"
 					}
 				}
+
 			}
 			
     	}
