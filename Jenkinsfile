@@ -3,9 +3,12 @@ def printFromFunction(){
 }
 
 def replaceString(){
-	def file = new File('./index.html')
-	println(file)
+	def file = readfile file: "index.html"
+
+		println(file.replaceAll("%BUILD_NUMBER%","replaced"))
 }
+		
+
 
 pipeline {
     agent any
