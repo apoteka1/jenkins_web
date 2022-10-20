@@ -2,6 +2,11 @@ def printFromFunction(){
 	println("I am printing from a function")
 }
 
+def replaceString(){
+	def file = new File('./index.html')
+	println(file)
+}
+
 pipeline {
     agent any
 
@@ -15,6 +20,7 @@ pipeline {
 			steps {
     			echo "build"
 				printFromFunction()
+				replaceString()
 			}
     	}
 
