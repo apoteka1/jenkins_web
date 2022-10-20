@@ -56,7 +56,7 @@ pipeline {
     }
 	post {
 		always {
-			emailext body: "🫠 ${currentBuild.currentResult}: Job ${JOB_NAME} build £{BUILD_NUMBER}", subject: 'Jenkins', to: 'Joseph.ackroyd@ecs.co.uk'
+			emailext body: "🫠 ${currentBuild.currentResult}: Job ${JOB_NAME} build ${BUILD_NUMBER}", subject: 'Jenkins', to: 'Joseph.ackroyd@ecs.co.uk'
 			archiveArtifacts artifacts: 'index.html', fingerprint: true, followSymlinks: false
 		}
 	}
