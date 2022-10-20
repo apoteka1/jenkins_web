@@ -27,8 +27,7 @@ pipeline {
 			}
     	}
 		stage("docker build"){
-			steps {
-    			echo "building in docker"
+			
 				agent {
 					docker {
 						image "node:latest"
@@ -36,13 +35,13 @@ pipeline {
 					}
 				}
 				steps {
+    			echo "building in docker"
 					sh """
 						node --version > /home/node/nodeversion.txt
 						npm --version > /home/node/npmeversion.txt
 					"""
 				}
-
-			}
+			
     	}
 
     	stage("test"){
