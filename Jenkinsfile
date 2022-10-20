@@ -23,6 +23,8 @@ pipeline {
 			steps {
     			echo "build"
 				printFromFunction()
+				replaceString()
+
 			}
     	}
 
@@ -46,7 +48,6 @@ pipeline {
 			
 			steps{
     			echo "deploy"
-				replaceString()
 
 			}
     	}
