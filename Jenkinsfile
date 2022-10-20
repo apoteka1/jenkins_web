@@ -30,7 +30,7 @@ pipeline {
 					steps {
 						echo "Testing on Linux"
 						sh """
-							cat ./index.html | grep ${BUILD_NUMBER}
+							cat ./index.html | grep "Deployed by Jenkins job ${BUILD_NUMBER}"
 						"""
 					}
 				}
