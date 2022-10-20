@@ -54,4 +54,9 @@ pipeline {
     	}
 
     }
+	post {
+		always {
+			archiveArtifacts artifacts: 'index.html', fingerprint: true, followSymlinks: false
+		}
+	}
 }
