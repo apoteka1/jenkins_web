@@ -6,5 +6,13 @@ pipeline {
           echo "hello"
         }
       }
+
+      stage("Print environment variables") {
+        steps {
+          sh '''
+            printenv
+          '''
+        }
+      }
     }
 }
