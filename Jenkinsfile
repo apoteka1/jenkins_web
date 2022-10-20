@@ -3,9 +3,9 @@ def printFromFunction(){
 }
 
 def replaceString(){
-	def file = readfile file: "index.html"
-	file = file.replaceAll("%BUILD_NUMBER%", "${BUILD_NUMBER}")
-	writeFile file: "index.html", text:file
+	def text = readfile file: "index.html"
+	text = text.replaceAll("%BUILD_NUMBER%", "${BUILD_NUMBER}")
+	writeFile file: "index.html", text:text
 }
 		
 
