@@ -37,8 +37,8 @@ pipeline {
 				steps {
     			echo "building in docker"
 					sh """
-						node --version > /home/node/nodeversion.txt
 						npm --version > /home/node/npmeversion.txt
+						python3 --version > /home/node/pythonversion.txt
 					"""
 				}
 			
