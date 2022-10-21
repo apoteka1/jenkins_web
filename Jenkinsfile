@@ -14,7 +14,7 @@ pipeline {
       
     	stage("web build"){
 				environment {
-					MY_SECRET_TEXT = "abc"
+					MY_SECRET_TEXT = credentials('secret_password')
 				}
 			steps {
     			echo "build"
