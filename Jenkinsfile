@@ -13,8 +13,12 @@ pipeline {
     stages {
       
     	stage("web build"){
+				environment {
+					MY_SECRET_TEXT = "abc"
+				}
 			steps {
     			echo "build"
+				echo "this is my secret: ${MY_SECRET_TEXT}"
 				script {
 					utils.replaceString()
 				}
