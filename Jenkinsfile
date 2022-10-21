@@ -1,4 +1,5 @@
 @Library('jenkins_shared@main') _
+
 properties([pipelineTriggers([githubPush()])])
 
 pipeline {
