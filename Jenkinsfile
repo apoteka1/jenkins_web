@@ -1,6 +1,6 @@
 @Library('jenkins_shared@main') _
 
-
+properties([pipelineTriggers([githubPush()])])
 
 pipeline {
     agent any
@@ -78,6 +78,7 @@ pipeline {
 			emailext body: "🫠 ${currentBuild.currentResult}: Job ${JOB_NAME} build ${BUILD_NUMBER}", subject: 'Jenkins', to: 'Joseph.ackroyd@ecs.co.uk'
 			archiveArtifacts artifacts: 'index.html', fingerprint: true, followSymlinks: false
 		}
+
 	}
 }
 
