@@ -10,6 +10,10 @@ pipeline {
 			disableConcurrentBuilds()
     }
 
+		parameters {
+			string(name: 'name', defaultValue: 'Joe', description: 'parameter')
+		}
+
     stages {
       
     	stage("web build"){
@@ -17,7 +21,8 @@ pipeline {
 					MY_SECRET_TEXT = credentials('secret_password')
 				}
 			steps {
-    			echo "build"
+				echo "This is my parameter ${params.name}"
+    		echo "build"
 				echo "this is my secret: ${MY_SECRET_TEXT}"
 				script {
 					utils.replaceString()
